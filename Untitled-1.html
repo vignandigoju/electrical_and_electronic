@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (Your existing head content) ... -->
+</head>
+<body>
+    <!-- ... (Your existing content) ... -->
+
+    <form id="add-employee-form">
+        <!-- ... (Your existing form elements) ... -->
+        <label for="assign_building">Assign Building</label>
+        <select id="assign_building" name="assign_building">
+            <option value="sse1">sse1</option>
+            <option value="sec2">sec2</option>
+            <option value="medical3">medical3</option>
+            <option value="scad4">scad4</option>
+            <option value="arch5">arch5</option>
+        </select>
+        <label for="assign_floor">Assign Floor</label>
+        <select id="assign_floor" name="assign_floor">
+            <!-- Floors for sse1 building -->
+            <option data-building="sse1" value="floor1">floor 1</option>
+            <option data-building="sse1" value="floor2">floor 2</option>
+            <!-- Floors for sec2 building -->
+            <option data-building="sec2" value="floor3">floor 3</option>
+            <option data-building="sec2" value="floor4">floor 4</option>
+            <!-- Floors for medical3 building -->
+            <option data-building="medical3" value="floor5">floor 5</option>
+            <option data-building="medical3" value="floor6">floor 6</option>
+            <!-- Floors for scad4 building -->
+            <option data-building="scad4" value="floor7">floor 7</option>
+            <option data-building="scad4" value="floor8">floor 8</option>
+            <!-- Floors for arch5 building -->
+            <option data-building="arch5" value="floor9">floor 9</option>
+            <option data-building="arch5" value="floor10">floor 10</option>
+        </select>
+        <label for="assign_room">Assign Room</label>
+        <select id="assign_room" name="assign_room">
+            <!-- Rooms for floors (you can customize these options) -->
+            <option data-floor="floor1" value="room1">room 1</option>
+            <option data-floor="floor1" value="room2">room 2</option>
+            <!-- Additional rooms for other floors... -->
+        </select>
+        <!-- ... (Your existing form elements) ... -->
+    </form>
+
+    <footer>
+        <!-- ... (Your existing footer content) ... -->
+    </footer>
+    
+    <script>
+        // Get references to the select elements
+        const buildingSelect = document.getElementById("assign_building");
+        const floorSelect = document.getElementById("assign_floor");
+        const roomSelect = document.getElementById("assign_room");
+
+        // Add event listeners to building and floor selects
+        buildingSelect.addEventListener("change", updateFloors);
+        floorSelect.addEventListener("change", updateRooms);
+
+        // Initialize floor and room options based on the default selected building
+        updateFloors();
+        updateRooms();
+
+        function updateFloors() {
+            // Get the selected building
+            const selectedBuilding = buildingSelect.value;
+
+            // Clear the floor select options
+            floorSelect.innerHTML = "";
+
+            // Populate the floor select based on the selected building
+            const floors = document.querySelectorAll(`option[data-building="${selectedBuilding}"]`);
+            floors.forEach((floor) => {
+                floorSelect.appendChild(floor.cloneNode(true));
+            });
+
+            // Update the rooms based on the selected floor
+            updateRooms();
+        }
+
+        function updateRooms() {
+            // Get the selected floor
+            const selectedFloor = floorSelect.value;
+
+            // Clear the room select options
+            roomSelect.innerHTML = "";
+
+            // Populate the room select based on the selected floor
+            const rooms = document.querySelectorAll(`option[data-floor="${selectedFloor}"]`);
+            rooms.forEach((room) => {
+                roomSelect.appendChild(room.cloneNode(true));
+            });
+        }
+    </script>
+</body>
+</html>

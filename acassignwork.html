@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Details</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .job-history {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-history li {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .job-history li strong {
+            font-weight: bold;
+        }
+
+        .assign-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Equipment Details</h1>
+    
+    <ul>
+        <img src="C:\Users\OM\Downloads\ac-removebg-preview.png"width="100">
+        <li><strong>Equipment:</strong> AC</li>
+        <li><strong>Brand:</strong> IFB </li>
+        <li><strong>Type:</strong> Electrical</li>
+        <li><strong>Price:</strong> 30000</li>
+        <li><strong>Purchase Date:</strong> 11/01/2022</li>
+        <li><strong>Warranty:</strong> 1 year</li>
+        <li><strong>Warranty Date End:</strong> 11/01/2024</li>
+    </ul>
+
+    <h2>Job History</h2>
+    <ul class="job-history">
+        <li>
+            <strong>Date:</strong> 05/15/2023<br>
+            <strong>Service Type:</strong> Repair<br>
+            <strong>Service Charge:</strong>6000<br>
+            <strong>Status:</strong> completed
+        </li>
+        <li>
+            <strong>Date:</strong> 05/15/2023<br>
+            <strong>Service Type:</strong> Repair<br>
+            <strong>Service Charge:</strong> 8000<br>
+            <strong>Status:</strong> pending
+        </li>
+        <!-- Add more list items for additional job history entries -->
+    </ul>
+    
+    <p><a href="choose.php"><button>Assign Work</button></a></p>
+</body>
+</html>

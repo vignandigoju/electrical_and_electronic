@@ -1,0 +1,177 @@
+<?php
+$conn = mysqli_connect("localhost", "root","","Maintanence");
+if(isset($_POST['submit'])){
+  $username=$_POST['username'];
+  $password=$_POST['password'];
+  $role=$_POST['role'];
+  $name=$_POST['name'];
+  $dob=$_POST['dob'];
+  $mobno=$_POST['mob_no'];
+
+  $sql="INSERT INTO login(Username, Password, role, name, dob, mobile_no) VALUES ('$username','$password','$role','$name','$dob','$mobno')";
+  $data = mysqli_query($conn,$sql);
+
+  if($data)
+  {
+    echo "Data inserted sucessfully";
+  }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2{
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        form {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #1c0d3f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+    </style>
+</head>
+<body>
+    
+    
+    <nav>
+        <ul>
+            <li><a href="appdashboard.php">Home</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+            <li><a href="mainlogin.php">Logout</a></li>
+        </ul>
+    </nav>
+    
+<form id="add-employee-form">
+    <label for="employee-name">Employee Name:</label>
+    <input type="text" id="employee-name" name="employee-name" required>
+    <label for="dob">Date of Joining:</label>
+    <input type="Date" name="dob" required>
+    <label for="mob_no">Mobile no:</label>
+    <input type="big int" name="mob_no" required>
+    <labelfor="assign_building">Assign Building</labelfor>
+    <select id="supervisor" name="assign_block">
+    <option value="assign_building">sse1</option>
+    <option value="assign_building">sec2</option>
+    <option value="assign_building">medical3</option>
+    <option value="assign_building">scad4</option>
+    <option value="assign_building">arch5</option></select>
+    <labelfor="assign_floor">Assign Floor</labelfor>
+    <select id="supervisor" name="assign_building">
+    <option value="assign_floor">floor 1</option>
+    <option value="assign_floor">floor 2</option>
+    <option value="assign_floor">floor 3</option>
+    <option value="assign_floor">floor 4</option>
+    <option value="assign_floor">floor 5</option></select>
+    <labelfor="assign_room">Assign Room</labelfor>
+    <select id="supervisor" name="assign_room">
+    <option value="assign_room">room 1</option>
+    <option value="assign_room">room 2</option>
+    <option value="assign_room">room 3</option>
+    <option value="assign_room">room 4</option>
+    <option value="assign_room">room 5</option></select>
+    <label for="employee-role">Designation:</label>
+    <select id="employee-role" name="employee-role">
+      <option value="supervisor">Electrician</option>
+      
+    </select>
+    <button class="add-button" onclick="showPopup('Added successfully!')">Add</button>
+  </form>
+    
+    <footer>
+        <p>&copy; 2023 Your Dashboard. All rights reserved.</p>
+        <a href="mainlogin.php">Logout</a>
+    
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        function showPopup(message) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>

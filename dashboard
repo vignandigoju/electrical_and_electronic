@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #190f31;
+        }
+        
+        header {
+            background-color: #0f092b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: rgb(19, 9, 37);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 200px;
+        }
+        
+        h2 {
+            margin-top: 0;
+        }
+        
+        .total {
+            color: #4CAF50;
+        }
+        
+        .maintenance {
+            color: #FFC107;
+        }
+        
+        .not-working {
+            color: #F44336;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AC Dashboard</h1>
+    </header>
+    
+    <main>
+        <div class="card total">
+            <h2>Total AC Units</h2>
+            <p>500 nos</p>
+        </div>
+        
+        <div class="card maintenance">
+            <h2>Under Maintenance</h2>
+            <p>40 nos</p>
+        </div>
+        
+        <div class="card not-working">
+            <h2>Not Working</h2>
+            <p>10 nos</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 AC Dashboard. All rights reserved.</p>
+    </footer>
+</body>
+</html>

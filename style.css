@@ -1,0 +1,26 @@
+.image{
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.t1, .t2, .b1, .b2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.t1,.t2{
+    padding:30px;
+}
+.b1, .b2{
+    height:35px;
+    width: 250px;;
+    border:2px solid black; 
+    border-radius: 10px;
+    background-color: #3e3063;
+    color:aliceblue
+    
+}
+input, select{
+    outline: 0;
+}
+

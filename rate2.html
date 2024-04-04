@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Rating</title>
+    <style>
+        /* Add some basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .rating-form {
+            max-width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        select {
+            height: 40px;
+        }
+        .rating {
+            margin-top: 10px;
+        }
+        .rating input[type="radio"] {
+            display: none;
+        }
+        .rating label {
+            font-size: 24px;
+            cursor: pointer;
+            color: #e4e4e4; /* Default color for stars */
+            margin-right: 5px;
+        }
+        .rating label:before {
+            content: "★";
+        }
+        .rating input[type="radio"]:checked ~ label {
+            color: #ff9800; /* Color for selected stars */
+        }
+        .comment {
+            margin-top: 10px;
+        }
+        .comment textarea {
+            height: 100px;
+        }
+        .submit-button {
+            background-color: #1c0d3f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="rating-form">
+        <h1>Rate Employee</h1>
+        <div class="form-group">
+            <label for="employeeName">Employee Name:</label>
+            <input type="text" id="employeeName" name="employeeName" placeholder="Enter employee's name" required>
+        </div>
+        <div class="form-group">
+            <label for="jobId">Job ID:</label>
+            <input type="text" id="jobId" name="jobId" placeholder="Enter job ID" required>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <div class="rating" onclick="updateRating(event)">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5"></label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4"></label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3"></label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2"></label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1"></label>
+            </div>
+        </div>
+        <div class="form-group comment">
+            <label for="comment">Comments:</label>
+            <textarea id="comment" name="comment" placeholder="Enter your comments"></textarea>
+        </div>
+        <button type="button" class="submit-button" onclick="submitRating()">Submit Rating</button>
+    </div>
+
+    <script>
+        // JavaScript function to update the rating based on the clicked star
+        function updateRating(event) {
+            const stars = document.querySelectorAll('.rating label');
+            const clickedStar = event.target;
+
+            if (clickedStar.previousElementSibling) {
+                const index = Array.from(stars).indexOf(clickedStar);
+                for (let i = 0; i <= index; i++) {
+                    stars[i].previousElementSibling.checked = true;
+                }
+            } else {
+                // If it's the 5th star, fill all stars
+                stars.forEach(star => {
+                    star.previousElementSibling.checked = true;
+                });
+            }
+        }
+
+        // JavaScript function to submit the rating
+        function submitRating() {
+            const employeeName = document.getElementById('employeeName').value;
+            const jobId = document.getElementById('jobId').value;
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const comment = document.getElementById('comment').value;
+
+            if (!employeeName || !jobId || !rating || !comment) {
+                alert('Please fill in all fields.');
+            } else {
+                alert(`Rating submitted for ${employeeName} (Job ID: ${jobId}): ${rating.value} stars\nComments: ${comment}`);
+                // You can submit the data to your server or perform other actions here.
+            }
+        }
+    </script>
+</body>
+</html>

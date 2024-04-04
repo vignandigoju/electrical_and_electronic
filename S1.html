@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Status Checker</title>
+    <style>
+        /* Add some basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .task-list {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .task {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+        .completed {
+            background-color: #b3ffb3;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-list">
+        <h1>Job Tasks</h1>
+        <label for="viewSelect">View:</label>
+        <select id="viewSelect" onchange="filterTasks()">
+            <option value="all">All</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="completed">Completed</option>
+        </select>
+        <div class="task" data-status="upcoming">
+            <h2>Task 1: Upcoming</h2>
+            <p>Job ID: 12345</p>
+            <p>Employee Name: John Doe</p>
+            <p>Date: 2023-09-15</p>
+            <button onclick="markCompleted(this)">Mark as Completed</button>
+        </div>
+        <div class="task completed" data-status="completed">
+            <h2>Task 2: Completed</h2>
+            <p>Job ID: 54321</p>
+            <p>Employee Name: Jane Smith</p>
+            <p>Date: 2023-09-10</p>
+            <button disabled>Completed</button>
+        </div>
+        <div class="task completed" data-status="completed">
+            <h2>Task 3: Completed</h2>
+            <p>Job ID: 98765</p>
+            <p>Employee Name: Michael Johnson</p>
+            <p>Date: 2023-09-05</p>
+            <button disabled>Completed</button>
+        </div>
+        <a href="Rating.php"><button class="choose-button">Next</button></a>
+
+    </div>
+    <script>
+        // JavaScript function to mark a task as completed and change its status
+        function markCompleted(button) {
+            const taskDiv = button.parentElement;
+            taskDiv.classList.add('completed');
+            taskDiv.setAttribute('data-status', 'completed'); // Change status
+            button.textContent = 'Completed';
+            button.disabled = true;
+
+            // Check if there's an upcoming task and change its status
+            const upcomingTask = taskDiv.nextElementSibling;
+            if (upcomingTask && upcomingTask.getAttribute('data-status') === 'upcoming') {
+                upcomingTask.setAttribute('data-status', 'completed');
+                upcomingTask.classList.add('completed');
+                upcomingTask.querySelector('button').textContent = 'Completed';
+                upcomingTask.querySelector('button').disabled = true;
+            }
+        }
+
+        // JavaScript function to filter tasks by status
+        function filterTasks() {
+            const viewSelect = document.getElementById('viewSelect');
+            const status = viewSelect.value;
+            const tasks = document.querySelectorAll('.task');
+
+            tasks.forEach(task => {
+                const taskStatus = task.getAttribute('data-status');
+                if (status === 'all' || taskStatus === status) {
+                    task.style.display = 'block';
+                } else {
+                    task.style.display = 'none';
+                }
+            });
+        }
+
+        // Initial call to filter tasks based on the "View" dropdown
+        filterTasks();
+    </script>
+</body>
+</html>

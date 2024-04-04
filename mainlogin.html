@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Electrical Equipment Maintenance</title>
+<style>
+	body {
+	max-width: max-content;
+	margin: auto;
+	margin-Top : 80px;
+	background-color :#BDEEC5;
+	font-size:1.3em;
+	}
+		label {
+        display: inline-block;
+        width: 90px;
+      }
+	  #btn_s{
+            width:300px;
+			height:35px;
+			background-color :#BDEEC5;
+			font-size:16px;
+			font-face:bold;
+			
+        }
+
+        #btn_i {
+            width:125px;
+        }
+</style>
+</head>
+<body style="background-color:3F3064;">
+  <p id="ground">
+    <center>
+      
+
+      <br> 
+      <form action="login.php" method="post">
+        <fieldset style="padding:50px; border:1px solid white; background:#f6f8ff; align:center;">
+          <h4>Login</h4>
+<img src="https://img.freepik.com/free-vector/illustration-characters-fixing-cogwheel_53876-40796.jpg?w=740&t=st=1693233930~exp=1693234530~hmac=89614fb179ec99424a33687e09d36c7e3be27565e51a41e8288d23158d5ae7f6" width="150" height="150" style="background-color: transparent;">
+          <div id="page">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required><br><br>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" required><br><br>
+            <input type="checkbox" onclick="togglePasswordVisibility()"> Show Password<br><br>
+            <button id="submit">Login</button>
+          </div>
+        </fieldset>
+      </form>
+    </center>
+  </p>
+  <script>
+    function togglePasswordVisibility() {
+      var passwordField = document.getElementById("passwordField");
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+      } else {
+        passwordField.type = "password";
+      }
+    }
+  </script>
+</body>
+</html>

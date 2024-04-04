@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Maintenance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #311249;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #1c0d3f;
+            cursor: pointer; /* Add pointer cursor to indicate interactivity */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Electrical Maintenance</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="appdashboard.html">Home</a></li>
+            <li><a href="manager.html">Add supervisor</a></li>
+            <li><a href="staff.html">Add worker</a></li>
+            <li><a href="jobhistory.html">Job History</a></li>
+            <li><a href="empdetails.html">Employee details</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+            <li><a href="mainlogin.html">Logout</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li><a href="Rating.html">Rating</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="facade">
+            <h2 onclick="displayTotal('Ac')">Ac</h2>
+            <p id="acCount" style="display: none;">Total ACs: 5</p> <!-- Adjust the total count accordingly -->
+        </section>
+
+        <section id="blocks">
+            <h2>Fan</h2>
+        </section>
+
+        <section id="landscaping">
+            <h2>Light</h2>
+            <label for="viewSelect">View:</label>
+        <select id="viewSelect" onchange="filterTasks()">
+            <option value="all">All</option>
+            <option value="total">total:500</option>
+            <option value="not working">not working:100</option>
+        </select>
+        </section>
+
+        <section id="security">
+            <h2>Generator</h2>
+        </section>
+
+        <section id="fire">
+            <h2>Sockets</h2>
+        </section>
+
+        <section id="parking">
+            <h2>Fuse</h2>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Dashboard. All rights reserved.</p>
+        <a href="login.php">Logout</a>
+    </footer>
+
+    <script>
+        function displayTotal(sectionName) {
+            const acCount = document.getElementById('acCount');
+            if (sectionName === 'Ac') {
+                acCount.style.display = 'block';
+            } else {
+                acCount.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2{
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        form {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #1c0d3f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Your header content goes here -->
+    </header>
+
+    <main>
+        <h1>Employee Details</h1>
+        <div id="employee-details">
+            <!-- Employee details will be displayed here using JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Dashboard. All rights reserved.</p>
+        <a href="mainlogin.php">Logout</a>
+    </footer>
+
+    <script>
+        // Retrieve employee data from local storage
+        const storedEmployeeData = localStorage.getItem("employeeData");
+        if (storedEmployeeData) {
+            const employeeData = JSON.parse(storedEmployeeData);
+            displayEmployeeDetails(employeeData);
+        } else {
+            // Handle the case where no data is available
+            document.getElementById("employee-details").innerHTML = "No employee data available.";
+        }
+
+        function displayEmployeeDetails(employeeData) {
+            const employeeDetailsDiv = document.getElementById("employee-details");
+            const detailsHTML = `
+                <h2>Employee Name: ${employeeData.employeeName}</h2>
+                <p>Date of Joining: ${employeeData.dateOfJoining}</p>
+                <p>Mobile no: ${employeeData.mobileNo}</p>
+                <p>Assign Building: ${employeeData.assignBuilding}</p>
+                <p>Assign Floor: ${employeeData.assignFloor}</p>
+                <p>Assign Room: ${employeeData.assignRoom}</p>
+                <p>Designation: ${employeeData.designation}</p>
+            `;
+            employeeDetailsDiv.innerHTML = detailsHTML;
+        }
+    </script>
+</body>
+</html>

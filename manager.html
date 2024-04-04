@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: #1c0d3f;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        main {
+            padding: 20px;
+        }
+        
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2{
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        form {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #1c0d3f;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1c0d3f;
+}
+    </style>
+</head>
+<body>
+
+    
+    <nav>
+        <ul>
+            <li><a href="appdashboard.html">Home</a></li>
+            <li><a href="complaint.html">Job History</a></li>
+            <li><a href="staff.html">Employee details</a></li>
+            <li><a href="profile.html">My Profile</a></li>
+            <li><a href="mainlogin.html">Logout</a></li>
+        </ul>
+    </nav>
+    
+<form id="add-employee-form">
+    <label for="employee-name">Employee Name:</label>
+    <input type="text" id="employee-name" name="employee-name" required>
+    <label for="dob">Date of Birth:</label>
+    <input type="Date" name="dob" required>
+    <label for="mob_no">Mobile no:</label>
+    <input type="big int" name="mob_no" required>
+    <labelfor="assign_building">Assign Building</labelfor>
+    <select id="supervisor" name="assign_building">
+    <option value="assign_building">1</option>
+    <option value="assign_building">2</option>
+    <option value="assign_building">3</option>
+    <option value="assign_building">4</option>
+    <option value="assign_building">5</option></select>
+    <labelfor="assign_floor">Assign Floor</labelfor>
+    <select id="supervisor" name="assign_floor">
+    <option value="assign_floor">floor 1</option>
+    <option value="assign_floor">floor 2</option>
+    <option value="assign_floor">floor 3</option>
+    <option value="assign_floor">floor 4</option>
+    <option value="assign_floor">floor 5</option></select>
+    <labelfor="assign_room">Assign Room</labelfor>
+    <select id="supervisor" name="assign_room">
+    <option value="assign_room">room 1</option>
+    <option value="assign_room">room 2</option>
+    <option value="assign_room">room 3</option>
+    <option value="assign_room">room 4</option>
+    <option value="assign_room">room 5</option></select>
+    <label for="employee-role">Designation:</label>
+    <select id="employee-role" name="employee-role">
+      <option value="supervisor">supervisor</option>
+      <option value="manager">Manager</option>
+      <option value="worker">Worker</option>
+    </select>
+    <button type="submit">Add Employee</button>
+  </form>
+    
+    <footer>
+        <p>&copy; 2023 Your Dashboard. All rights reserved.</p>
+        <a href="login.php">Logout</a>
+    
+    </footer>
+</body>
+</html>
